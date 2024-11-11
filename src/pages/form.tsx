@@ -1,39 +1,3 @@
-
-// import Stepper from '@mui/material/Stepper';
-// import Step from '@mui/material/Step';
-// import StepLabel from '@mui/material/StepLabel';
-
-// const steps = ['Personal information', 'Work information', 'Confirmation'];
-
-// export default function form() {
-    
-    
-//     return (<>
-//     <div className='step-fo'>
-//     <Stepper style={{width: '18%'}} activeStep={0} orientation="horizontal" >
-            
-//     {steps.map((label) => (
-//           <Step key={label} >
-//             <StepLabel color="inherit" >
-//               {label}
-//             </StepLabel>
-//           </Step>
-//         ))}{/* <Step>
-//                 <StepLabel>Personal information</StepLabel>
-//             </Step>
-//             <Step>
-//                 <StepLabel>Work information</StepLabel>
-//             </Step>
-//             <Step>
-//                 <StepLabel>Confirmation</StepLabel>
-//             </Step> */}
-//         </Stepper>
-//     </div>
-//     
-//     </>);
-// }
-
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -45,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import FirstStep from '../components/firstStep'
 import SecondStep from '../components/secondStep'
 import ThirdStep from '../components/thirdStep'
+
+import "../scss/form.css"
 
 const steps = ['Personal information', 'Work information', 'Confirmation'];
 
@@ -113,16 +79,26 @@ export default function HorizontalNonLinearStepper() {
 }
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <div className='formtostep'>
+      <h1>
+        Digital Creative Skill
+      </h1>
+      <h3>
+        database
+      </h3>
+
+      <Box >
+      <div className='stepper'>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
-          <Step key={label} completed={completed[index]}>
+          <Step  key={label} completed={completed[index]}>
             <StepButton color="inherit" onClick={handleStep(index)}>
               {label}
             </StepButton>
           </Step>
         ))}
       </Stepper>
+      </div>
       <div>
       <div className="form">
     <div>
@@ -141,9 +117,9 @@ export default function HorizontalNonLinearStepper() {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
+            {/* <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
               Step {activeStep + 1}
-            </Typography>
+            </Typography> */}
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Button
                 color="inherit"
@@ -174,6 +150,7 @@ export default function HorizontalNonLinearStepper() {
         )}
       </div>
     </Box>
+    </div>
 
   );
 }

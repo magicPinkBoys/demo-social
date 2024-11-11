@@ -14,6 +14,7 @@ import { jobPositionMusic,
         jobPositionArchitecture,
         jobPositionOther
        } from "../data/dataJobPosition";
+import { colors } from "@mui/material";
 
 const element = document.createElement("div");
 
@@ -28,6 +29,10 @@ const controlNodes = [
     label: "กลุ่มอุตสาหกรรม Industry",
     shape: "dot",
     group: 1,
+    // color: rgba(255,255,255,1);
+    x: 0,
+    y: 0,
+    physics: false,
     // visible: true,
     // ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
     //   const drawNode = () => {
@@ -118,10 +123,12 @@ export default () => {
     ]);
     const edges = new DataSet(initialData.edges);
     var options = {
-      physics: { barnesHut: { gravitationalConstant: -4000 } },
-      interaction: {
-        multiselect: true
-      }
+      height: "900px",
+      // physics: { barnesHut: { gravitationalConstant: -4000 } },
+      // physics: false,
+      // interaction: {
+      //   multiselect: true
+      // }
     };
     if (!network) {
       network = new Network(
@@ -181,9 +188,9 @@ export default () => {
 
   return (
     <>
-      <button onClick={handleClick}>Focus</button>
+      {/* <button onClick={handleClick}>Focus</button> */}
 
-      <div style={{ height: 700, width: "100%" }} ref={ref} />
+      <div style={{ height: "100%", width: "100%", backgroundColor:"#fff" , borderRadius: "10px" }} ref={ref} />
     </>
   );
 };

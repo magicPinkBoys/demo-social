@@ -4,7 +4,7 @@ export const industry = [
       label: "ดนตรี \n (Music)",
       shape: "dot",
       group: 2,
-      value: 10
+      value: 100
     },
     {
         id: "performingArt",
@@ -41,7 +41,7 @@ export const industry = [
         label: "การโฆษณา \n (Advertising)",
         shape: "dot",
         group: 2,
-        value: 10
+        value: 60
       },{
         id: "design",
         label: "การออกแบบ \n (Design)",

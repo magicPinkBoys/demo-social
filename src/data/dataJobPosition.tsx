@@ -3,7 +3,8 @@ export const jobPositionMusic = [
     id: "voice-over",
     label: "(3413/03) Voice Over",
     shape: "dot",
-    group: 3
+    group: 3,
+    value: 22
   },
   {
     id: "vocal",
@@ -81,13 +82,13 @@ export const jobPositionPerfomingArt = [
     group: 3
   },
   {
-    id: 'musician',
+    id: 'musician1',
     label: '(3415/03) Musician',
     shape: 'dot',
     group: 3
   },
   {
-    id: 'music-conduct',
+    id: 'music-conduct1',
     label: '(3415/02) Music conduct',
     shape: 'dot',
     group: 3

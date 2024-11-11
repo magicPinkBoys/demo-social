@@ -12,10 +12,16 @@ function App() {
 
   return (
     <>
+    <div className='navbar'>
     <Navbar />
-    <Background />
-      {/* <Graph /> */}
+    </div>
+    <div className='container'>
     <Form />
+    {/* <Graph /> */}
+    </div>
+      <div className='bg'>
+      <Background />
+      </div>
     </>
   )
 }
