@@ -6,6 +6,7 @@ import Navbar from './components/navbar'
 import Graph from "./pages/graph"
 import Form from './pages/form'
 import Background from './components/background'
+import Home from './pages/pages'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -15,10 +16,11 @@ function App() {
     <div className='navbar'>
     <Navbar />
     </div>
-    <div className='container'>
-    <Form />
+    {/* <div className='container'> */}
+    {/* <Form /> */}
     {/* <Graph /> */}
-    </div>
+    <Home />
+    {/* </div> */}
       <div className='bg'>
       <Background />
       </div>
