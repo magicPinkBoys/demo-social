@@ -13,15 +13,15 @@ function App() {
 
   return (
     <>
-    <div className='navbar'>
+    <div className='navbar-app'>
     <Navbar />
     </div>
-    {/* <div className='container'> */}
+    <div className='container-app'>
     {/* <Form /> */}
     {/* <Graph /> */}
     <Home />
-    {/* </div> */}
-      <div className='bg'>
+    </div>
+      <div className='bga'>
       <Background />
       </div>
     </>

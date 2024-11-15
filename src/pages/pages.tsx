@@ -23,11 +23,11 @@ export default function Home() {
 
   return (
     <div className="flex justify-center py-10">
-      <div className="bg-gray-100 rounded-lg w-full p-10 mx-5">
-        <div className="pt-2 text-center text-2xl sm:text-3xl font-semibold">
+      <div className="w-[80VH] p-10 mx-5">
+        <div className="text-white pt-2 text-center text-2xl sm:text-3xl font-semibold">
         Digital Creative Skill
         </div>
-        <div className="pt-2 mb-5 text-center text-l sm:text-l font-semibold">
+        <div className="text-white pt-2 mb-5 text-center text-l sm:text-l font-semibold">
         database
         </div>
         {/* progress bar */}

@@ -13,10 +13,10 @@ const Circle = ({
     rounded-full border-2 sm:border-4 select-none transition-colors duration-300
     ease-in-out delay-300 ${
       step == currentIndex
-        ? "text-red-500 border-red-500"
+        ? "text-white bg-red-500 border-red-500"
         : `${
             step < currentIndex
-              ? "bg-white border-gray-300 text-gray-500"
+              ? " border-gray-300 text-gray-500"
               : "bg-red-500 border-red-500 text-white"
           }`
     }
@@ -34,10 +34,10 @@ function ProgressBar() {
     <div className="flex mx-auto justify-between mb-6 w-3/4 max-w-2xl">
       {[...Array(totalSteps - 1)].map((_, idx) => (
         <div key={idx} className="flex items-center w-full">
-          <Circle step={step} currentIndex={idx + 1} />
+          <Circle step={step} currentIndex={idx + 1}  />
 
           {/* connecting line */}
-          <div className="flex-grow h-[2px] sm:h-1 relative">
+          <div className="mx-4 flex-grow h-[2px] sm:h-1 relative">
             <div className="absolute top-0 left-0 h-full w-full bg-gray-300" />
 
             <div

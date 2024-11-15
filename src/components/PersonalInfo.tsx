@@ -3,7 +3,7 @@ import { personalInfoSchema } from "./validationSchema";
 import { useState } from "react";
 
 function PersonalInfo() {
-  const { nextStep, formData, setPersonalInfo } = useFormSchema();
+  const { prevStep, nextStep, formData, setPersonalInfo } = useFormSchema();
   const [error, setError] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,13 +25,13 @@ function PersonalInfo() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold">Personal Information</h2>
+      {/* <h2 className="text-xl font-semibold">Personal Information</h2> */}
       <div className="mt-5">
         {error && <div className="font-bold text-red-600">*{error}</div>}
-        <div className="grid gap-6 mb-6 md:grid-cols-2">
+        <div className="grid gap-[2rem] mb-6 md:grid-cols-2">
           <div>
             <label
-              className="text-lg font-medium text-gray-900"
+              className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="firstName"
             >
               ชื่อ(Name)*
@@ -43,13 +43,13 @@ function PersonalInfo() {
               value={formData.personalInfo.firstName}
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
-              rounded-lg block w-full p-2.5"
+              rounded-lg block w-full p-2.5 mt-1"
               required
             />
           </div>
           <div>
             <label
-              className="text-lg font-medium text-gray-900"
+              className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="lastName"
             >
               นามสกุล(Surname)*
@@ -67,7 +67,7 @@ function PersonalInfo() {
           </div>
           <div>
             <label
-              className="text-lg font-medium text-gray-900"
+              className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="email"
             >
               Email Address *
@@ -85,7 +85,7 @@ function PersonalInfo() {
           </div>
           <div>
             <label
-              className="text-lg font-medium text-gray-900"
+              className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="phone"
             >
               Phone Number
@@ -103,7 +103,7 @@ function PersonalInfo() {
           </div>
           <div>
             <label
-              className="text-lg font-medium text-gray-900"
+              className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="birthday"
             >
               วันเดือนปีเกิด (Date of Birth)
@@ -111,8 +111,8 @@ function PersonalInfo() {
             <input
               type="date"
               name="birthday"
-             
-              value={formData.personalInfo.birthDay}
+            //  id="birthday"
+              value={formData.personalInfo.birthDay} 
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5"
@@ -121,7 +121,7 @@ function PersonalInfo() {
           </div>
           <div>
             <label
-              className="text-lg font-medium text-gray-900"
+              className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="gender"
             >
               เพศ(Gender)
@@ -143,15 +143,41 @@ function PersonalInfo() {
                 <option value="none">ไม่ระบุ</option>
             </select>
           </div>
+
+          <div>
+            <label
+              className="text-lg font-medium text-[#A4A4A4]"
+              htmlFor="birthday"
+            >
+              วันเดือนปีเกิด (Date of Birth)
+            </label>
+            <input
+              type="date"
+              name="birthday"
+            //  id="birthday"
+              value={formData.personalInfo.birthDay} 
+              onChange={handleChange}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+              rounded-lg block w-full p-2.5"
+              required
+            />
+          </div>
+
         </div>
       </div>
       {/* buttons */}
-      <div className="flex justify-center mt-5 ">
+      <div className="flex justify-center mt-[8rem] gap-4">
+      <button
+          className="text-white bg-gradient-to-r from-[#9C3FE4] to-[#C65647] px-10 py-2 rounded-[15px] text-lg sm:text-xl"
+          onClick={prevStep}
+        >
+          Back
+        </button>
         <button
-          className="text-white bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-lg text-lg sm:text-xl"
+          className=" text-white bg-gradient-to-r from-[#9C3FE4] to-[#C65647] px-10 py-2 rounded-[15px] text-lg sm:text-xl"
           onClick={validateAndNext}
         >
-          Next {"\u2192"}
+          Next
         </button>
       </div>
     </div>
