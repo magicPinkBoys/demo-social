@@ -7,8 +7,8 @@ export const personalInfoSchema= z.object({
     phone: z.string()
     .length(10, "phone Number must be 10 digits")
     .regex(/^\d+$/, "Phone Number must contain only digits"),
-    birthDay: z.string().date("Select your birthday"),
-    gender: z.string().min(3, "Gender is requried"),
+    // birthDay: z.string().date("Select your birthday"),
+    // gender: z.string().min(3, "Gender is requried"),
 });
 
 export const jobsPositionInfoSchema = z.object({

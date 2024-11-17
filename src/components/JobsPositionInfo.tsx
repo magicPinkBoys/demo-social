@@ -25,21 +25,21 @@ function JobsPositionInfo() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold">Personal Information</h2>
+      {/* <h2 className="text-xl font-semibold">Personal Information</h2> */}
       <div className="mt-5">
         {error && <div className="font-bold text-red-600">*{error}</div>}
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label
               className="text-lg font-medium text-gray-900"
-              htmlFor="firstName"
+              htmlFor="industry"
             >
-              First Name
+              Industry
             </label>
             <input
               type="text"
-              name="firstName"
-              placeholder="First Name"
+              name="industry"
+              placeholder="Industry"
               value={formData.jobsPositionInfo.industry}
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
@@ -50,14 +50,14 @@ function JobsPositionInfo() {
           <div>
             <label
               className="text-lg font-medium text-gray-900"
-              htmlFor="lastName"
+              htmlFor="job"
             >
-              Last Name
+              Job
             </label>
             <input
               type="text"
-              name="lastName"
-              placeholder="Last Name"
+              name="job"
+              placeholder="Job"
               value={formData.jobsPositionInfo.job}
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
@@ -68,14 +68,14 @@ function JobsPositionInfo() {
           <div>
             <label
               className="text-lg font-medium text-gray-900"
-              htmlFor="lastName"
+              htmlFor="skill"
             >
-              Last Name
+              Skill
             </label>
             <input
               type="text"
-              name="lastName"
-              placeholder="Last Name"
+              name="skill"
+              placeholder="Skill"
               value={formData.jobsPositionInfo.skill}
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
@@ -86,14 +86,14 @@ function JobsPositionInfo() {
           <div>
             <label
               className="text-lg font-medium text-gray-900"
-              htmlFor="lastName"
+              htmlFor="workDescription"
             >
-              Last Name
+              Work Description
             </label>
             <input
               type="text"
-              name="lastName"
-              placeholder="Last Name"
+              name="workDescription"
+              placeholder="Work Description"
               value={formData.jobsPositionInfo.workDescription}
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
@@ -104,14 +104,14 @@ function JobsPositionInfo() {
           <div>
             <label
               className="text-lg font-medium text-gray-900"
-              htmlFor="lastName"
+              htmlFor="educationLevel"
             >
-              Last Name
+              Education Level
             </label>
             <input
               type="text"
-              name="lastName"
-              placeholder="Last Name"
+              name="educationLevel"
+              placeholder="Education Level"
               value={formData.jobsPositionInfo.educationLevel}
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm

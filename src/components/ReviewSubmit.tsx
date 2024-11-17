@@ -26,20 +26,51 @@ function ReviewSubmit() {
             <span className="font-semibold">Phone Number:</span>
             {formData.personalInfo.phone}
           </p>
+          {/* <p>
+            <span className="font-semibold">Phone Number:</span>
+            {formData.personalInfo.birthDay}
+          </p> */}
+
+        </div>
+        <div className="grid gap-6 mb-6 mt-2 md:grid-cols-2 border p-2 border-gray-300 rounded-lg">
+          <p>
+            <span className="font-semibold">Industry:</span>
+            {formData.personalInfo.firstName}
+          </p>
+          <p>
+            <span className="font-semibold">Job:</span>
+            {formData.personalInfo.lastName}
+          </p>
+          <p>
+            <span className="font-semibold">Skill:</span>
+            {formData.personalInfo.email}
+          </p>
+          <p>
+            <span className="font-semibold">Work Description:</span>
+            {formData.personalInfo.phone}
+          </p>
+          <p>
+            <span className="font-semibold">Education Level:</span>
+            {formData.personalInfo.phone}
+          </p>
+          {/* <p>
+            <span className="font-semibold">Phone Number:</span>
+            {formData.personalInfo.birthDay}
+          </p> */}
 
         </div>
       </div>
 
 
-      <div className="flex justify-between mt-5">
+      <div className="flex justify-center gap-4 mt-5">
         <button
-          className="text--blue-500 text-lg sm:text-xl"
+          className="text-white bg-gradient-to-r from-[#9C3FE4] to-[#C65647] px-10 py-2 rounded-[15px] text-lg sm:text-xl"
           onClick={prevStep}
         >
-          {"\u2190"} Previous
+          Previous
         </button>
         <button
-          className="text-white bg-blue-500 px-3 py-1 rounded-lg text-lg sm:text-xl"
+          className="text-white bg-gradient-to-r from-[#9C3FE4] to-[#C65647] px-10 py-2 rounded-[15px] text-lg sm:text-xl"
           onClick={submitForm}
         >
           Submit

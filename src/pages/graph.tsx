@@ -75,8 +75,8 @@ const controlNodes = [
   },
 ];
 
-const initialData = generateDataFromNodes(controlNodes, "rootNode");
-const indrustryData = generateDataFromNodes(industry,"extractedFilesNode");
+const initialData = generateDataFromNodes(industry, "rootNode");
+const indrustryData = generateDataFromNodes(jobPositionPerfomingArt,"music");
 const jobPositionMusicData = generateDataFromNodes(jobPositionMusic, "music");
 const jobPositionPerfomingArtData = generateDataFromNodes(jobPositionPerfomingArt, "performingArt");
 const jobPositionNewMediaArtData = generateDataFromNodes(jobPositionNewMediaArt, "new-media-art");
@@ -118,7 +118,7 @@ export default () => {
 
   useEffect(() => {
     const nodes = new DataSet([
-    //   { id: "rootNode", label: "sample", type: "diamond", shape: "dot" },
+      { id: "rootNode", label: "sample", type: "diamond", shape: "dot", color:"#222222" },
       ...initialData.nodes
     ]);
     const edges = new DataSet(initialData.edges);
@@ -140,51 +140,61 @@ export default () => {
         options
       );
 
-      network.on("dragEnd", (event) => {
-        const [clickedNode] = event.nodes;
-        if (!clickedNode) return;
-        console.log(clickedNode);
-        nodes.update({ id: clickedNode, fixed: true });
-      });
-      network.on("dragStart", (event) => {
-        const [clickedNode] = event.nodes;
-        if (!clickedNode) return;
-        nodes.update({ id: clickedNode, fixed: false });
-      });
-      network.on("click", (event: any) => {
+      network.on("click", (event) => {
         const [clickedNode] = event.nodes;
         const dataMap = {
           extractedFilesNode: indrustryData,
           music: jobPositionMusicData,
-          performingArt: jobPositionPerfomingArtData
-
-          /* undefined: () => currentGraphData */
+          performingArt: jobPositionPerfomingArtData,
+          // musician: softwareData
         };
-        if (!(clickedNode in dataMap)) return;
-        console.log(clickedNode);
 
-        if (
-          edges.get({
-            filter: (item) => item.from === clickedNode
-          }).length
-        ) {
-          const connected = network.getConnectedNodes(clickedNode);
+        if (!clickedNode) return;
 
-          connected.forEach((element) => {
-            if (element !== "rootNode") {
-              const child = nodes.get(element);
-              nodes.update({ ...child, hidden: !child.hidden });
-            }
-          });
-          //console.log(network.getConnectedNodes(clickedNode));
-          return;
+        // ตรวจสอบว่าโหนดมีลูกไหม
+        const connectedEdges = edges.get({
+          filter: (item) => item.from === clickedNode,
+        });
+
+        if (connectedEdges.length) {
+          // มีลูก ให้ลบลูกทั้งหมด
+          const childNodeIds = getAllChildNodes(clickedNode, edges);
+          nodes.remove(childNodeIds);
+          edges.remove(connectedEdges);
+        } else {
+          // ไม่มีลูก ให้เพิ่มโหนดใหม่
+          if (!(clickedNode in dataMap)) return;
+
+          nodes.add(dataMap[clickedNode].nodes);
+          edges.add(dataMap[clickedNode].edges);
         }
-
-        nodes.add(dataMap[clickedNode].nodes);
-        edges.add(dataMap[clickedNode].edges);
       });
     }
   }, []);
+
+  // ฟังก์ชันหาลูกหลานทั้งหมดของโหนด
+  function getAllChildNodes(parentNodeId, edges) {
+    const childNodeIds = [];
+    const stack = [parentNodeId];
+
+    while (stack.length > 0) {
+      const currentNodeId = stack.pop();
+
+      // หา edges ที่เชื่อมจากโหนดนี้
+      const connectedEdges = edges.get({
+        filter: (item) => item.from === currentNodeId,
+      });
+
+      // ดึง ID ของ child nodes และเพิ่มเข้าไปในรายการ
+      const childIds = connectedEdges.map((edge) => edge.to);
+      childNodeIds.push(...childIds);
+
+      // เพิ่มลูกของลูกเข้า stack เพื่อตรวจสอบต่อ
+      stack.push(...childIds);
+    }
+
+    return childNodeIds;
+  }
 
   return (
     <>

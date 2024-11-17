@@ -41,7 +41,7 @@ function ProgressBar() {
             <div className="absolute top-0 left-0 h-full w-full bg-gray-300" />
 
             <div
-              className={`absolute top-0 left-0 h-full w-full bg-blue-500
+              className={`absolute top-0 left-0 h-full w-full bg-red-500
               transition-transform duration-300 ease-in-out origin-left
               transform ${step > idx + 1 ? "scale-x-100" : "scale-x-0"}
               `}

@@ -18,8 +18,8 @@ function App() {
     </div>
     <div className='container-app'>
     {/* <Form /> */}
-    {/* <Graph /> */}
-    <Home />
+    <Graph />
+    {/* <Home /> */}
     </div>
       <div className='bga'>
       <Background />

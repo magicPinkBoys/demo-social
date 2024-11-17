@@ -28,7 +28,7 @@ function PersonalInfo() {
       {/* <h2 className="text-xl font-semibold">Personal Information</h2> */}
       <div className="mt-5">
         {error && <div className="font-bold text-red-600">*{error}</div>}
-        <div className="grid gap-[2rem] mb-6 md:grid-cols-2">
+        <div className="grid gap-[2rem] mb-2 md:grid-cols-2">
           <div>
             <label
               className="text-lg font-medium text-[#A4A4A4]"
@@ -112,11 +112,11 @@ function PersonalInfo() {
               type="date"
               name="birthday"
             //  id="birthday"
-              value={formData.personalInfo.birthDay} 
+              // value={formData.personalInfo.birthDay} 
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5"
-              required
+              // required
             />
           </div>
           <div>
@@ -149,24 +149,61 @@ function PersonalInfo() {
               className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="birthday"
             >
-              วันเดือนปีเกิด (Date of Birth)
+              ประเทศ
             </label>
             <input
-              type="date"
+              type="text"
               name="birthday"
             //  id="birthday"
-              value={formData.personalInfo.birthDay} 
+              // value={formData.personalInfo.birthDay} 
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5"
-              required
+              // required
             />
           </div>
+          <div>
+            <label
+              className="text-lg font-medium text-[#A4A4A4]"
+              htmlFor="birthday"
+            >
+              จังหวัด
+            </label>
+            <input
+              type="text"
+              name="birthday"
+            //  id="birthday"
+              // value={formData.personalInfo.birthDay} 
+              onChange={handleChange}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+              rounded-lg block w-full p-2.5"
+              // required
+            />
+          </div>
+          <div>
+            <label
+              className="text-lg font-medium text-[#A4A4A4]"
+              htmlFor="birthday"
+            >
+              เขต
+            </label>
+            <input
+              type="text"
+              name="birthday"
+            //  id="birthday"
+              // value={formData.personalInfo.birthDay} 
+              onChange={handleChange}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+              rounded-lg block w-full p-2.5"
+              // required
+            />
+          </div>
+
 
         </div>
       </div>
       {/* buttons */}
-      <div className="flex justify-center mt-[8rem] gap-4">
+      <div className="flex justify-center mt-[2rem] gap-4">
       <button
           className="text-white bg-gradient-to-r from-[#9C3FE4] to-[#C65647] px-10 py-2 rounded-[15px] text-lg sm:text-xl"
           onClick={prevStep}
