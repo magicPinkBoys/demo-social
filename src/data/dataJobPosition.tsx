@@ -1,228 +1,228 @@
 export const jobPositionMusic = [
   {
-    id: "voice-over",
+    id: "m1",
     label: "(3413/03) Voice Over",
-    shape: "dot",
+    
     group: 3,
     value: 22
   },
   {
-    id: "vocal",
+    id: "m2",
     label: "(3413/08) Vocal",
-    shape: "dot",
+    
     group: 3
   },
   {
-    id: "composing",
+    id: "m3",
     label: "(3415/01) Composing",
-    shape: "dot",
+    
     group: 3
   },
   {
-    id: "song-writing",
+    id: "m4",
     label: "(3415/01) Song writing",
-    shape: "dot",
+    
     group: 3
   },
   {
-    id: "music-conduct",
+    id: "m5",
     label: "(3415/02) Music conduct",
-    shape: "dot",
+    
     group: 3
   },
   {
-    id: "musician",
+    id: "m6",
     label: "(3415/03) Musician",
-    shape: "dot",
+   
     group: 3
   },
   {
-    id: "music-production",
+    id: "m7",
     label: "(3416/04) Music Production",
-    shape: "dot",
+    
     group: 3
   },
   {
-    id: "sound-design",
+    id: "m8",
     label: "(3417/04) Sound design",
-    shape: "dot",
+    
     group: 3
   },
   {
-    id: "sound-mixing-editing",
+    id: "m9",
     label: "(3417/04) Sound mixing, editing",
-    shape: "dot",
+   
     group: 3
   },
   {
-    id: "sound-engineering",
+    id: "m0",
     label: "(3417/05) Sound engineering",
-    shape: "dot",
+    
     group: 3
   },
 ];
 
 export const jobPositionPerfomingArt = [
   {
-    id: 'acting',
+    id: 'pf00',
     label: '(3413/01) Acting',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'performing-dance',
+    id: 'pf01',
     label: '(3414/03) Performing (dance)',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'performing-vocal',
+    id: 'pf02',
     label: '(3413/08) Performing (vocal)',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'musician1',
+    id: 'pf03',
     label: '(3415/03) Musician',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'music-conduct1',
+    id: 'pf04',
     label: '(3415/02) Music conduct',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'costume-design',
+    id: 'pf05',
     label: '(3422/02) Costume design',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'make-up',
+    id: 'pf06',
     label: '(3429/03) Make-up',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'stage-design',
+    id: 'pf07',
     label: '(3429/04) Stage design',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'lighting-design',
+    id: 'pf08',
     label: '(3417/02) Lighting design',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'sound-mixing',
+    id: 'pf09',
     label: '(3417/04) Sound mixing',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'audio-visual',
+    id: 'pf10',
     label: '(3417/99) Audio-Visual',
-    shape: 'dot',
+    
     group: 3
   },
 ];
 
 export const jobPositionNewMediaArt = [
   {
-    id: 'interactive-installation',
+    id: 'nma00',
     label: '(2142/99) Interactive installation',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'multimedia-design',
+    id: 'nma01',
     label: '(2142/99) Multimedia design',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'vr',
+    id: 'nma02',
     label: '(2142/99) VR',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'ar',
+    id: 'nma03',
     label: '(2142/99) AR',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'projection-mapping',
+    id: 'nma04',
     label: '(2142/99) Projection mapping',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'programming',
+    id: 'nma05',
     label: '(2134/03) Programming',
-    shape: 'dot',
+   
     group: 3
   },
 ];
 
 export const jobPositionFilm = [
   {
-    id: 'storyboard-script-screen-writing',
+    id: 'f00',
     label: '(3412/06) Storyboard / Script /Screen writing',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'directing',
+    id: 'f01',
     label: '(3416/02) Directing',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'production',
+    id: 'f02',
     label: '(3614/04) Production',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'lighting-design-/-operation',
+    id: 'f03',
     label: '(3417/02) lighting design / operation',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'photo-shooting',
+    id: 'f04',
     label: '(3417/03) Photo shooting',
-    shape: 'dot',
+    
     group: 3
   },
   {
-    id: 'video-shooting',
+    id: 'f05',
     label: '(3417/01) Video shooting',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'motion-graphic',
+    id: 'f06',
     label: '(2142/01) Motion graphic',
-    shape: 'dot',
+   
     group: 3
   },
   {
-    id: 'photo-editing',
+    id: 'f07',
     label: '(3417/03) Photo editing',
-    shape: 'dot',
+  
     group: 3
   },
   {
-    id: 'video-editing',
+    id: 'f08',
     label: '(3417/01) Video editing',
-    shape: 'dot',
+   
     group: 3
   },
 ];

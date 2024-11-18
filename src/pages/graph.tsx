@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import  { useEffect, useRef } from "react";
 import { Options, Edge, Node, Network } from "vis-network";
 import { DataSet } from "vis-data";
 
@@ -14,72 +14,34 @@ import { jobPositionMusic,
         jobPositionArchitecture,
         jobPositionOther
        } from "../data/dataJobPosition";
-import { colors } from "@mui/material";
 
-const element = document.createElement("div");
+// const element = document.createElement("div");
 
 const generateDataFromNodes = (nodes: any, parentNodeId: any) => ({
   nodes: nodes,
   edges: nodes.map((node: any) => ({ from: parentNodeId, to: node.id }))
 });
 
+const generateDataFromNodesSetByForm = (nodes: any, edges: any) => ({
+  nodes: nodes,
+  edges: edges,
+});
+
 const controlNodes = [
   {
     id: "extractedFilesNode",
-    label: "กลุ่มอุตสาหกรรม Industry",
-    shape: "dot",
+    label: "กลุ่มอุตสาหกรรม \nIndustry",
     group: 1,
-    // color: rgba(255,255,255,1);
-    x: 0,
-    y: 0,
-    physics: false,
-    // visible: true,
-    // ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-    //   const drawNode = () => {
-    //     const points = [
-    //       { value: 1, color: "red" },
-    //       { value: 0, color: "orange" },
-
-    //       { value: 0, color: "blue" }
-    //     ];
-    //     const radius = 30;
-    //     const totalValue = points.reduce((sum, point) => sum + point.value, 0);
-    //     let startAngle = 0;
-
-    //     for (let i = 0; i < points.length; i++) {
-    //       const point = points[i];
-    //       const slicePercentage = point.value / totalValue;
-    //       const endAngle = startAngle + 2 * Math.PI * slicePercentage;
-
-    //       ctx.beginPath();
-    //       ctx.moveTo(x, y);
-    //       ctx.arc(x, y, radius, startAngle, endAngle - 0.1, false);
-    //       ctx.closePath();
-
-    //       ctx.fillStyle = point.color; // Set the color of the chart chunk
-    //       ctx.fill();
-
-    //       ctx.font = "12px bold serif";
-    //       ctx.fillStyle = "black";
-    //       ctx.fillText("label test", x - 20, y + 40);
-    //       //ctx.fillText("custom shape", x - 5 , y + 40, 10);
-
-    //       startAngle = endAngle;
-    //     }
-    //   };
-    //   return {
-    //     drawNode,
-    //     nodeDimensions: { width: 20, height: 20 }
-    //   };
-    // }
+    // value: 300,
+    color: "#FFEA00",
   },
 ];
 
-const initialData = generateDataFromNodes(industry, "rootNode");
-const indrustryData = generateDataFromNodes(jobPositionPerfomingArt,"music");
+const initialData = generateDataFromNodes(controlNodes, "rootNode");
+const indrustryData = generateDataFromNodes(industry,"extractedFilesNode");
 const jobPositionMusicData = generateDataFromNodes(jobPositionMusic, "music");
 const jobPositionPerfomingArtData = generateDataFromNodes(jobPositionPerfomingArt, "performingArt");
-const jobPositionNewMediaArtData = generateDataFromNodes(jobPositionNewMediaArt, "new-media-art");
+const jobPositionNewMediaArtData = generateDataFromNodes(jobPositionNewMediaArt, "newMediaArt");
 const jobPositionFilmData = generateDataFromNodes(jobPositionFilm, "film");
 const jobPositionGameAndAnimationData = generateDataFromNodes(jobPositionGameAndAnimation, "game-and-animation");
 
@@ -118,12 +80,24 @@ export default () => {
 
   useEffect(() => {
     const nodes = new DataSet([
-      { id: "rootNode", label: "sample", type: "diamond", shape: "dot", color:"#222222" },
+      // { id: "rootNode", label: "sample", type: "diamond", shape: "dot", color:"#222222" },
       ...initialData.nodes
     ]);
     const edges = new DataSet(initialData.edges);
     var options = {
-      height: "900px",
+      
+      interaction: {
+        navigationButtons: true,
+      },
+
+      nodes: {
+        shape: "circle",
+      },
+      // chosen: {
+      //   node: function (values, id, selected, hovering) {
+      //     console.log(id);
+      //   },
+      // },
       // physics: { barnesHut: { gravitationalConstant: -4000 } },
       // physics: false,
       // interaction: {
@@ -143,10 +117,11 @@ export default () => {
       network.on("click", (event) => {
         const [clickedNode] = event.nodes;
         const dataMap = {
+          // initialData,
           extractedFilesNode: indrustryData,
           music: jobPositionMusicData,
           performingArt: jobPositionPerfomingArtData,
-          // musician: softwareData
+          newMediaArt: jobPositionNewMediaArtData,
         };
 
         if (!clickedNode) return;
@@ -198,9 +173,7 @@ export default () => {
 
   return (
     <>
-      {/* <button onClick={handleClick}>Focus</button> */}
-
-      <div style={{ height: "100%", width: "100%", backgroundColor:"#fff" , borderRadius: "10px" }} ref={ref} />
+      <div style={{ height: "100", width: "100%", backgroundColor:"#fff" , borderRadius: "10px" }} ref={ref} />
     </>
   );
 };
