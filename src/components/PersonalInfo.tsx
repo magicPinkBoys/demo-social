@@ -11,6 +11,11 @@ function PersonalInfo() {
     setPersonalInfo({ [e.target.name]: e.target.value });
   };
 
+  // const handleChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
+  //   setError("");
+  //   setPersonalInfo({ [e.target.name]: e.target.value });
+  // };
+
   const validateAndNext = () => {
     try {
       personalInfoSchema.parse(formData.personalInfo);
@@ -104,15 +109,15 @@ function PersonalInfo() {
           <div>
             <label
               className="text-lg font-medium text-[#A4A4A4]"
-              htmlFor="birthday"
+              htmlFor="dateOfBirth"
             >
               วันเดือนปีเกิด (Date of Birth)
             </label>
             <input
               type="date"
-              name="birthday"
+              name="dateOfBirth"
             //  id="birthday"
-              // value={formData.personalInfo.birthDay} 
+              value={formData.personalInfo.dateOfBirth} 
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5"
@@ -126,25 +131,16 @@ function PersonalInfo() {
             >
               เพศ(Gender)
             </label>
-            {/* <input
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              value={formData.personalInfo.gender}
-              onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
-              rounded-lg block w-full p-2.5"
-              required
-            /> */}
-            <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
-              rounded-lg block w-full p-2.5" value={formData.personalInfo.gender} onChange={(e) => handleChange}>
+            <select name="gender" onChange={e => setPersonalInfo({[e.target.name]: e.target.value})} value={formData.personalInfo.gender ??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+              rounded-lg block w-full p-2.5" >
+                <option value=""></option>
                 <option value="male">ชาย</option>
                 <option value="female">หญืง</option>
-                <option value="none">ไม่ระบุ</option>
+                <option value="other">ไม่ระบุ</option>
             </select>
           </div>
 
-          <div>
+          {/* <div>
             <label
               className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="birthday"
@@ -197,7 +193,7 @@ function PersonalInfo() {
               rounded-lg block w-full p-2.5"
               // required
             />
-          </div>
+          </div> */}
 
 
         </div>

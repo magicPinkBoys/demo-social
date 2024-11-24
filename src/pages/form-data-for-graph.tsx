@@ -5,15 +5,22 @@ import {
   FormData,
 } from "../components/validationSchema";
 
+
 interface JobAppState {
   step: number;
   formData: FormData;
+  con1: boolean;
+  con2: boolean;
+  con3: boolean;
   nextStep: () => void;
   prevStep: () => void;
   getTotalSteps: () => number;
   setPersonalInfo: (data: Partial<PersonalInfo>) => void;
   setJobsPositionInfo: (data: Partial<JobsPositionInfo>) => void;
   submitForm: () => void;
+  setCon1: ()=> void;
+  setCon2: ()=> void;
+  setCon3: ()=> void;
 }
 
 const useFormSchema = create<JobAppState>((set, get) => ({
@@ -24,20 +31,30 @@ const useFormSchema = create<JobAppState>((set, get) => ({
       lastName: "",
       email: "",
       phone: "",
-      birthDay: "",
-      gender: "",
+      dateOfBirth: "",
+      gender: undefined,
     },
     jobsPositionInfo: {
-        industry: "",
-        job: "",
-        skill: "",
+        industry: undefined,
+        job: undefined,
+        skill: undefined,
         workDescription: "",
-        educationLevel: "",
+        educationLevel: undefined,
+        member: "",
       },
     
   },
   nextStep: () => set((state) => ({ step: state.step + 1 })),
   prevStep: () => set((state) => ({ step: state.step - 1 })),
+
+  con1: false,
+  con2: false,
+  con3: false,
+
+  setCon1: () => set((state) => ({con1: !state.con1})),
+  setCon2: () => set((state) => ({con2: !state.con2})),
+  setCon3: () => set((state) => ({con3: !state.con3})),
+
   getTotalSteps: () => {
     return Object.keys(get().formData).length + 1;
   },
@@ -62,27 +79,34 @@ const useFormSchema = create<JobAppState>((set, get) => ({
           },
         })),
   submitForm: () => {
+
+    
     set((state) => {
+      if (!(state.con1 && state.con2 && state.con3)){
+        console.log('do it again')
+      }else{
       console.log("Form submitted Successfully!");
       console.log("Submitted Data: ", state.formData);
+    }
       return {
         step: 1,
         formData: {
-            personalInfo: {
-              firstName: "",
-              lastName: "",
-              email: "",
-              phone: "",
-              birthDay: "",
-              gender: "",
+          personalInfo: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            dateOfBirth: "",
+            gender: undefined,
+          },
+          jobsPositionInfo: {
+              industry: undefined,
+              job: undefined,
+              skill: undefined,
+              workDescription: "",
+              educationLevel: undefined,
+              member: "",
             },
-            jobsPositionInfo: {
-                industry: "",
-                job: "",
-                skill: "",
-                workDescription: "",
-                educationLevel: "",
-              },
             },
       };
     });

@@ -4,9 +4,10 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar'
 import Graph from "./pages/graph"
-import Form from './pages/form'
+// import Form from './pages/form'
 import Background from './components/background'
-import Home from './pages/pages'
+import Form from './pages/pages'
+import Home from './pages/home'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -17,8 +18,8 @@ function App() {
     <Navbar />
     </div>
     <div className='container-app'>
-    {/* <Form /> */}
-    <Graph />
+    <Form />
+    {/* <Graph /> */}
     {/* <Home /> */}
     </div>
       <div className='bga'>

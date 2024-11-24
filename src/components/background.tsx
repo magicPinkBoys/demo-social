@@ -7,7 +7,7 @@ export default function background() {
         <div className='color'></div>
         <div className='color'></div>
         <div className='color'></div>
-        <div className='tri-fi'></div>
+        {/* <div className='tri-fi'></div> */}
     </section>
         
     </>)
