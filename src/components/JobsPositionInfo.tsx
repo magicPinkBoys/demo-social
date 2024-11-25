@@ -36,8 +36,8 @@ function JobsPositionInfo() {
             >
               กลุ่มอุตสาหกรรมสร้างสรรค์(Industry)*
             </label>
-              <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
-              rounded-lg block w-full p-2.5" onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.industry??""} >
+              <select name="industry" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+              rounded-lg block w-full p-2.5" onChange={e=> setJobsPositionInfo({ [e.target.name]: e.target.value })} value={formData.jobsPositionInfo.industry??""} >
                 <option value=""></option>
                 <option value="music">ดนตรี (Music)</option>
                 <option value="performing-arts">ศิลปะการแสดง (Performing Arts)</option>
@@ -58,7 +58,7 @@ function JobsPositionInfo() {
             >
               อาชีพ(Job)*
             </label>
-            <select onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.job ??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+            <select name="job" onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.job ??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" >
                 <option value=""></option>
               <option value="music">ดนตรี (Music)</option>
@@ -80,7 +80,7 @@ function JobsPositionInfo() {
             >
               ความเชี่ยวชาญ(​Technical Skill)*
             </label>
-            <select onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.skill??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+            <select name="skill" onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.skill??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" >
                 <option value=""></option>
               <option value="music">ดนตรี (Music)</option>
@@ -120,7 +120,7 @@ function JobsPositionInfo() {
             >
               ระยะเวลาในการทำงาน
             </label>
-            <select onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.yearOfWork??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+            <select name="yearOfWork" onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.yearOfWork??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" >
                 <option value=""></option>
                <option value="year0">ต่ำกว่า 6 เดือน</option>
@@ -139,7 +139,7 @@ function JobsPositionInfo() {
             >
               รายได้ต่อเดือน
             </label>
-            <select onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.salary??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+            <select name="salary" onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.salary??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" >
                 <option value=""></option>
                 <option value="salary1">ต่ำกว่า 15,000 บาท</option>
@@ -168,7 +168,7 @@ function JobsPositionInfo() {
               rounded-lg block w-full p-2.5"
               required
             /> */}
-                 <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                 <select name="educationLevel" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" onChange={e => setJobsPositionInfo({[e.target.name]: e.target.value})} value={formData.jobsPositionInfo.educationLevel??""} >
                 <option value=""></option>
                 <option value="vocational-certificate">ประกาศนียบัตรวิชาชีพ (Vocational Certificate)</option>

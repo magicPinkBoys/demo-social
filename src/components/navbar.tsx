@@ -1,12 +1,15 @@
 import "../scss/navbar.css"
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (<>
     <nav className="navlayer">
         <a href="/" className="logo-nav">Logo</a>
+        <img src="../../public/picture/logo-social/graph.png " />
         <ul>
             <li>
             <a href="/">Database</a>
+            {/* <Link to="/graph">Database</Link> */}
             </li>
             <li>
                 <a href="/">About</a>

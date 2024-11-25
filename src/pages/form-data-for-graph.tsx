@@ -9,6 +9,7 @@ import {
 interface JobAppState {
   step: number;
   formData: FormData;
+  // textForStep: ["Personal information", "Work information", "Confirmation"],
   con1: boolean;
   con2: boolean;
   con3: boolean;
@@ -50,6 +51,7 @@ const useFormSchema = create<JobAppState>((set, get) => ({
   con1: false,
   con2: false,
   con3: false,
+
 
   setCon1: () => set((state) => ({con1: !state.con1})),
   setCon2: () => set((state) => ({con2: !state.con2})),

@@ -13,7 +13,7 @@ const Circle = ({
     rounded-full border-2 sm:border-4 select-none transition-colors duration-300
     ease-in-out delay-300 ${
       step == currentIndex
-        ? "text-white bg-red-500 border-red-500"
+        ? "text-red-500 border-red-500"
         : `${
             step < currentIndex
               ? " border-gray-300 text-gray-500"

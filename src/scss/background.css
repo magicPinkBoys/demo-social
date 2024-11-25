@@ -16,6 +16,8 @@ section{
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(to bottom, #121215, #121215);
+    position: relative;
+    z-index: -1;
 }
 
 section .color{

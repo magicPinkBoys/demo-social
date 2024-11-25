@@ -172,8 +172,8 @@ export default () => {
   }
 
   return (
-    <>
+    <div className="container-app">
       <div style={{ height: "100", width: "100%", backgroundColor:"#fff" , borderRadius: "10px" }} ref={ref} />
-    </>
+    </div>
   );
 };
