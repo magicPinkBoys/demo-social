@@ -163,9 +163,9 @@ function PersonalInfo() {
             <select name="gender" onChange={e => setPersonalInfo({[e.target.name]: e.target.value})} value={formData.personalInfo.gender ??""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" >
                 <option value=""></option>
-                <option value="male">ชาย</option>
-                <option value="female">หญืง</option>
-                <option value="other">ไม่ระบุ</option>
+                <option value="ชาย">ชาย</option>
+                <option value="หญิง">หญืง</option>
+                <option value="ไม่ระบุ">ไม่ระบุ</option>
             </select>
           </div>
 

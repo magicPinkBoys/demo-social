@@ -1,6 +1,8 @@
 import { useState } from "react";
 import useFormSchema from "../pages/form-data-for-graph";
 
+import { industries } from "../data/graphData";
+
 function ReviewSubmit() {
   const { submitForm, prevStep, formData, setCon1, setCon2 , setCon3, con1 , con2, con3 } = useFormSchema();
 
@@ -46,6 +48,7 @@ function ReviewSubmit() {
           </p>
           <p>
             <span className="font-semibold">อาชีพ(Job)*: </span>
+            
             {formData.jobsPositionInfo.job}
           </p>
           <p>
@@ -69,7 +72,7 @@ function ReviewSubmit() {
           <p>
             <span className="font-semibold">ระดับการศึกษา
             (Education level): </span>
-            {formData.personalInfo.phone}
+            {formData.jobsPositionInfo.educationLevel}
           </p>
           <p>
             <span className="font-semibold">ท่านเป็นสมาชิกสมาคม สมาพันธ์(): </span>
