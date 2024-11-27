@@ -1,10 +1,39 @@
 import useFormSchema from "../pages/form-data-for-graph";
 import { personalInfoSchema } from "./validationSchema";
 import { useState } from "react";
+import { Country, State, City } from "country-state-city";
 
 function PersonalInfo() {
   const { prevStep, nextStep, formData, setPersonalInfo } = useFormSchema();
   const [error, setError] = useState<string>("");
+
+  const [countries, setCountries] = useState(Country.getAllCountries());
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedState, setSelectedState] = useState(null);
+  const [selectedCities, setSelectedCities] = useState(null);
+
+  const handleCountryChange = (country) => {
+    setSelectedCountry(country);
+    setStates(State.getStatesOfCountry(country.isoCode));
+    setCities([]);
+  };
+
+  const handleStateChange = (state) => {
+    setSelectedState(state);
+    setCities(City.getCitiesOfState(selectedCountry.isoCode, state.isoCode));
+    // setCities([]);
+  };
+
+  const handleCitiesChange = (cities) => {
+    setSelectedCities(cities);
+    // setCities(City.getCitiesOfState(selectedCountry.isoCode, state.isoCode));
+    // setCities([]);
+  };
+
+  // district
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError("");
@@ -140,23 +169,21 @@ function PersonalInfo() {
             </select>
           </div>
 
-          {/* <div>
+          <div>
             <label
               className="text-lg font-medium text-[#A4A4A4]"
               htmlFor="birthday"
             >
               ประเทศ
             </label>
-            <input
-              type="text"
-              name="birthday"
-            //  id="birthday"
-              // value={formData.personalInfo.birthDay} 
-              onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
-              rounded-lg block w-full p-2.5"
-              // required
-            />
+            <select onChange={(e) => handleCountryChange(countries.find((c) => c.isoCode === e.target.value),)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+              rounded-lg block w-full p-2.5" >
+                <option value="">Select Country</option>
+                {countries.map((Country) => (
+                  <option key={Country.isoCode} value={Country.isoCode}>{Country.name}</option>
+                ))}
+                
+            </select>
           </div>
           <div>
             <label
@@ -165,16 +192,14 @@ function PersonalInfo() {
             >
               จังหวัด
             </label>
-            <input
-              type="text"
-              name="birthday"
-            //  id="birthday"
-              // value={formData.personalInfo.birthDay} 
-              onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
-              rounded-lg block w-full p-2.5"
-              // required
-            />
+            <select disabled={!selectedCountry} onChange={(e) => handleStateChange(states.find((s) => s.isoCode === e.target.value),)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+              rounded-lg block w-full p-2.5" >
+               <option value="">Select State</option>
+                {states.map((state) => (
+                  <option key={state.isoCode} value={state.isoCode}>{state.name}</option>
+                ))}
+                
+            </select>
           </div>
           <div>
             <label
@@ -183,17 +208,14 @@ function PersonalInfo() {
             >
               เขต
             </label>
-            <input
-              type="text"
-              name="birthday"
-            //  id="birthday"
-              // value={formData.personalInfo.birthDay} 
-              onChange={handleChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
-              rounded-lg block w-full p-2.5"
-              // required
-            />
-          </div> */}
+            <select disabled={!selectedState} onChange={(e) => handleCitiesChange(states.find((i) => i.isoCode === e.target.value),)}  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
+              rounded-lg block w-full p-2.5" >
+                <option value="">Selcet City</option>
+                {cities.map((city) => (
+                  <option key={city.isoCode} value={city.isoCode}>{city.name}</option>
+                ))}
+            </select>
+          </div>
 
 
         </div>

@@ -1,5 +1,5 @@
 import  { useEffect, useRef } from "react";
-import { Options, Edge, Node, Network } from "vis-network";
+import { Options, Edge, Node, Network, NetworkEvents, IdType } from "vis-network";
 import { DataSet } from "vis-data";
 
 import { industry } from "../data/dataIndustry";
@@ -14,6 +14,10 @@ import { jobPositionMusic,
         jobPositionArchitecture,
         jobPositionOther
        } from "../data/dataJobPosition";
+import { data, graphs } from "../data/graph";
+import { getGraphsChildNodes, getGraphsChildNodesRecursively, getGraphsEdges, getGraphsEdgesOfNodeAndChildNodes, getGraphsNodeFromNodeId, getGraphsNodes, getGraphsWithDataType, isNodeInGraph } from "../utils/GraphUtils";
+import { industries } from "../data/graphData";
+import { DataType } from "../models/enums/DataType";
 
 // const element = document.createElement("div");
 
@@ -38,14 +42,14 @@ const controlNodes = [
 ];
 
 const initialData = generateDataFromNodes(controlNodes, "rootNode");
-const indrustryData = generateDataFromNodes(industry,"extractedFilesNode");
-const jobPositionMusicData = generateDataFromNodes(jobPositionMusic, "music");
-const jobPositionPerfomingArtData = generateDataFromNodes(jobPositionPerfomingArt, "performingArt");
-const jobPositionNewMediaArtData = generateDataFromNodes(jobPositionNewMediaArt, "newMediaArt");
-const jobPositionFilmData = generateDataFromNodes(jobPositionFilm, "film");
-const jobPositionGameAndAnimationData = generateDataFromNodes(jobPositionGameAndAnimation, "game-and-animation");
+// const indrustryData = generateDataFromNodes(industry,"extractedFilesNode");
+// const jobPositionMusicData = generateDataFromNodes(jobPositionMusic, "music");
+// const jobPositionPerfomingArtData = generateDataFromNodes(jobPositionPerfomingArt, "performingArt");
+// const jobPositionNewMediaArtData = generateDataFromNodes(jobPositionNewMediaArt, "newMediaArt");
+// const jobPositionFilmData = generateDataFromNodes(jobPositionFilm, "film");
+// const jobPositionGameAndAnimationData = generateDataFromNodes(jobPositionGameAndAnimation, "game-and-animation");
 
-let network: any;
+let network: Network;
 let theNodePositions = [];
 let theEdgePositions = [];
 
@@ -79,11 +83,11 @@ export default () => {
   }
 
   useEffect(() => {
-    const nodes = new DataSet([
-      // { id: "rootNode", label: "sample", type: "diamond", shape: "dot", color:"#222222" },
-      ...initialData.nodes
-    ]);
-    const edges = new DataSet(initialData.edges);
+    const initialGraphs = getGraphsWithDataType(data, DataType.ROOT);
+
+    const nodes = new DataSet(getGraphsNodes(initialGraphs));
+    const edges = new DataSet(getGraphsEdges(initialGraphs));
+
     var options = {
       
       interaction: {
@@ -115,61 +119,54 @@ export default () => {
       );
 
       network.on("click", (event) => {
-        const [clickedNode] = event.nodes;
-        const dataMap = {
-          // initialData,
-          extractedFilesNode: indrustryData,
-          music: jobPositionMusicData,
-          performingArt: jobPositionPerfomingArtData,
-          newMediaArt: jobPositionNewMediaArtData,
-        };
+        const [clickedNodeId] = event.nodes as IdType[];
+        const clickedNode = getGraphsNodeFromNodeId(graphs, clickedNodeId);
 
         if (!clickedNode) return;
 
         // ตรวจสอบว่าโหนดมีลูกไหม
-        const connectedEdges = edges.get({
-          filter: (item) => item.from === clickedNode,
+        const childNodes = edges.get({
+          filter: (edge) => edge.to === clickedNode.id
         });
-
-        if (connectedEdges.length) {
+        
+        if (childNodes.length) {
           // มีลูก ให้ลบลูกทั้งหมด
-          const childNodeIds = getAllChildNodes(clickedNode, edges);
-          nodes.remove(childNodeIds);
-          edges.remove(connectedEdges);
+          nodes.remove(getGraphsChildNodesRecursively(graphs, clickedNode));
+          edges.remove(getGraphsEdgesOfNodeAndChildNodes(graphs, clickedNode));
         } else {
           // ไม่มีลูก ให้เพิ่มโหนดใหม่
-          if (!(clickedNode in dataMap)) return;
-
-          nodes.add(dataMap[clickedNode].nodes);
-          edges.add(dataMap[clickedNode].edges);
+          if (!(isNodeInGraph(graphs, clickedNode))) return;
+          
+          nodes.add(getGraphsChildNodes(graphs, clickedNode));
+          edges.add(getGraphsEdgesOfNodeAndChildNodes(graphs, clickedNode));
         }
       });
     }
   }, []);
 
   // ฟังก์ชันหาลูกหลานทั้งหมดของโหนด
-  function getAllChildNodes(parentNodeId, edges) {
-    const childNodeIds = [];
-    const stack = [parentNodeId];
+  // function getAllChildNodes(parentNodeId, edges) {
+  //   const childNodeIds = [];
+  //   const stack = [parentNodeId];
 
-    while (stack.length > 0) {
-      const currentNodeId = stack.pop();
+  //   while (stack.length > 0) {
+  //     const currentNodeId = stack.pop();
 
-      // หา edges ที่เชื่อมจากโหนดนี้
-      const connectedEdges = edges.get({
-        filter: (item) => item.from === currentNodeId,
-      });
+  //     // หา edges ที่เชื่อมจากโหนดนี้
+  //     const connectedEdges = edges.get({
+  //       filter: (item) => item.from === currentNodeId,
+  //     });
 
-      // ดึง ID ของ child nodes และเพิ่มเข้าไปในรายการ
-      const childIds = connectedEdges.map((edge) => edge.to);
-      childNodeIds.push(...childIds);
+  //     // ดึง ID ของ child nodes และเพิ่มเข้าไปในรายการ
+  //     const childIds = connectedEdges.map((edge) => edge.to);
+  //     childNodeIds.push(...childIds);
 
-      // เพิ่มลูกของลูกเข้า stack เพื่อตรวจสอบต่อ
-      stack.push(...childIds);
-    }
+  //     // เพิ่มลูกของลูกเข้า stack เพื่อตรวจสอบต่อ
+  //     stack.push(...childIds);
+  //   }
 
-    return childNodeIds;
-  }
+  //   return childNodeIds;
+  // }
 
   return (
     <div className="container-app">

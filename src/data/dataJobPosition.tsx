@@ -229,166 +229,264 @@ export const jobPositionFilm = [
 
 export const jobPositionGameAndAnimation = [
   {
-    id: "voice-over",
-    label: "(3413/03) Voice Over",
-    shape: "dot",
-    group: 3
+  id : "gaa0",
+  label: "(3412/06) Storyboard / Script /Screen writing",
   },
   {
-    id: "vocal",
-    label: "(3413/08) Vocal",
-    shape: "dot",
-    group: 3
+  id : "gaa1",
+  label: "(2142/99) Visualizing",
   },
   {
-    id: "composing",
-    label: "(3415/01) Composing",
-    shape: "dot",
-    group: 3
+  id : "gaa2",
+  label: "(2142/01) 2D animation",
   },
   {
-    id: "song-writing",
-    label: "(3415/01) Song writing",
-    shape: "dot",
-    group: 3
+  id : "gaa3",
+  label: "(2142/01) 3D animation",
   },
   {
-    id: "music-conduct",
-    label: "(3415/02) Music conduct",
-    shape: "dot",
-    group: 3
+  id : "gaa4",
+  label: "(2142/01) Stop motion animation",
   },
   {
-    id: "musician",
-    label: "(3415/03) Musician",
-    shape: "dot",
-    group: 3
+  id : "gaa5",
+  label: "(2142/01) Motion graphic",
   },
   {
-    id: "music-production",
-    label: "(3416/04) Music Production",
-    shape: "dot",
-    group: 3
+  id : "gaa6",
+  label: "(2142/99) Character design",
   },
   {
-    id: "sound-design",
-    label: "(3417/04) Sound design",
-    shape: "dot",
-    group: 3
+  id : "gaa7",
+  label: "(2142/99) 3D model",
   },
   {
-    id: "sound-mixing-editing",
-    label: "(3417/04) Sound mixing, editing",
-    shape: "dot",
-    group: 3
+  id : "gaa8",
+  label: "(2142/99) Texturing",
   },
   {
-    id: "sound-engineering",
-    label: "(3417/05) Sound engineering",
-    shape: "dot",
-    group: 3
+  id : "gaa9",
+  label: "(2142/99) Composition",
   },
-];
+  {
+  id : "gaa10",
+  label: "(2142/99) Rigging",
+  },
+  {
+  id : "gaa11",
+  label: "(2142/99) Math move",
+  },
+  {
+  id : "gaa12",
+  label: "(2142/99) Rotoscoping",
+  },
+  {
+  id : "gaa13",
+  label: "(2142/99) Lighting design/ illuminate",
+  },
+  {
+  id : "gaa14",
+  label: "(2142/99) illustration",
+  },
+  {
+  id : "gaa15",
+  label: "(2142/99) Rendering",
+  },
+  {
+  id : "gaa16",
+  label: "(2142/99) Paint/ clean up",
+  },
+  {
+  id : "gaa17",
+  label: "(2142/99) Pipeline",
+  },
+  {
+  id : "gaa18",
+  label: "(2134/01) Game design",
+  },
+  {
+  id : "gaa19",
+  label: "(2134/02) Game Dev / programmer",
+  },
+  {
+  id : "gaa20",
+  label: "(2142/99) AR",
+  },
+  {
+  id : "gaa21",
+  label: "(2142/99) VR",
+  },
+  {
+  id : "gaa22",
+  label: "(2142/99) Virtual Production]",
+  },
+  ];
+  
 
 export const jobPositionDigitalPublishing = [
   {
-    id: "voice-over",
-    label: "(3413/03) Voice Over",
-    shape: "dot",
-    group: 3
+  id : "dp0",
+  label: "(2492/02) Journalism",
   },
   {
-    id: "vocal",
-    label: "(3413/08) Vocal",
-    shape: "dot",
-    group: 3
+  id : "dp1",
+  label: "(3417/03) Photography",
   },
   {
-    id: "composing",
-    label: "(3415/01) Composing",
-    shape: "dot",
-    group: 3
+  id : "dp2",
+  label: "(3412/99) Writing",
   },
   {
-    id: "song-writing",
-    label: "(3415/01) Song writing",
-    shape: "dot",
-    group: 3
+  id : "dp3",
+  label: "(3412/03) copywriting",
   },
   {
-    id: "music-conduct",
-    label: "(3415/02) Music conduct",
-    shape: "dot",
-    group: 3
+  id : "dp4",
+  label: "(3411/04) drawing & illustration",
   },
   {
-    id: "musician",
-    label: "(3415/03) Musician",
-    shape: "dot",
-    group: 3
+  id : "dp5",
+  label: "(2491/00) Editor",
   },
   {
-    id: "music-production",
-    label: "(3416/04) Music Production",
-    shape: "dot",
-    group: 3
+  id : "dp6",
+  label: "(3412/08) Translate",
   },
-  {
-    id: "sound-design",
-    label: "(3417/04) Sound design",
-    shape: "dot",
-    group: 3
-  },
-  {
-    id: "sound-mixing-editing",
-    label: "(3417/04) Sound mixing, editing",
-    shape: "dot",
-    group: 3
-  },
-  {
-    id: "sound-engineering",
-    label: "(3417/05) Sound engineering",
-    shape: "dot",
-    group: 3
-  },
-];
-
-export const jobPositionAdvertising = [
-  {
-    id: "advertising",
-    label: "(3413/03) Voice Over",
-    shape: "dot",
-    group: 3
-  },
-
-];
+  ];
 
 export const jobPositionDesign = [
   {
-    id: "design",
-    label: "Design",
-    shape: "dot",
-    group: 3
+  id : "ds0",
+  label: "(2494/02) Creative directors",
   },
-
-];
+  {
+  id : "ds1",
+  label: "(2141/02) UI and UX designers",
+  },
+  {
+  id : "ds2",
+  label: "(2141/03) Web designers",
+  },
+  {
+  id : "ds3",
+  label: "(2141/99) Web design professionals",
+  },
+  {
+  id : "ds4",
+  label: "(1255/99) Managers and directors in the creative industries",
+  },
+  {
+  id : "ds5",
+  label: "(2142/99) Graphic and multimedia designers",
+  },
+  {
+  id : "ds6",
+  label: "(3429/99) Design occupations",
+  },
+  {
+  id : "ds7",
+  label: "(3429/01) Industrial and product designers",
+  },
+  {
+  id : "ds8",
+  label: "(2142/99) Graphic and multimedia designers",
+  },
+  {
+  id : "ds9",
+  label: "(3417/02) Lighting designers",
+  },
+  {
+  id : "ds10",
+  label: "(3429/04) Set designers",
+  },
+  {
+  id : "ds11",
+  label: "(3429/05) Visual merchandisers",
+  },
+  {
+  id : "ds12",
+  label: "(7125/02) Visual merchandisers and window dressers",
+  },
+  ];
 
 export const jobPositionArchitecture = [
   {
-    id: "architecture",
-    label: "archutec",
-    shape: "dot",
-    group: 3
+  id : "ach0",
+  label: "(3421/00)	Interior designers",
   },
-
-];
-
-export const jobPositionOther = [
   {
-    id: "other",
-    label: "other",
-    shape: "dot",
-    group: 3
+  id : "ach1",
+  label: "(2452/03) Urban designers",
   },
+  {
+  id : "ach2",
+  label: "(1255/99)	Managers and directors in the creative industries",
+  },
+  {
+  id : "ach3",
+  label: "(2121/01) Building and building services engineers",
+  },
+  {
+  id : "ach4",
+  label: "(2451/01) Architects (except landscape)",
+  },
+  {
+  id : "ach5",
+  label: "(2451/02) Landscape architects",
+  },
+  {
+  id : "ach6",
+  label: "(2452/01)	Chartered architectural technologists",
+  },
+  {
+  id : "ach7",
+  label: "(2452/02)	Planning officers",
+  },
+  {
+  id : "ach8",
+  label: "(2454/01)	Building control surveyors",
+  },
+  {
+  id : "ach9",
+  label: "(3114/01)	Building technicians",
+  },
+  {
+  id : "ach10",
+  label: "(3120/01)	Architectural technicians",
+  },
+  {
+  id : "ach11",
+  label: "(3581/02)	Building control officers",
+  },
+  {
+  id : "ach12",
+  label: "(5113/01)	Garden designers",
+  },
+  ];
 
-];
+export const jobPositionAdvertising = [
+  {
+  id : "adver0",
+  label: "(2494/02) Creative directors",
+  },
+  {
+  id : "adver1",
+  label: "(2142/99) Graphic and multimedia designers ",
+  },
+  {
+  id : "adver2",
+  label: "(3429/99)	Design occupations",
+  },
+  {
+  id : "adver3",
+  label: "(3556/02)	Business development managers",
+  },
+  {
+  id : "adver4",
+  label: "(3556/04)	Sales managers",
+  },
+  {
+  id : "adver5",
+  label: "(3556/99)	Sales accounts and business development managers n.e.c.",
+  },
+  ];
