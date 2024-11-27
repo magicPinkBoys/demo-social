@@ -4,9 +4,18 @@ import ProgressBar from "../components/ProgressBar";
 import ReviewSubmit from "../components/ReviewSubmit";
 import JobsPositionInfo from "../components/JobsPositionInfo";
 import useFormSchema from "./form-data-for-graph";
+import { useEffect } from "react";
+import { getAllUsers } from "../utils/getAllUsers";
 
 export default function Home() {
   const { step } = useFormSchema();
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getAllUsers();
+    }
+    fetchData();
+  }, []);
 
   const renderStep = () => {
     switch (step) {

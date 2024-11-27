@@ -4,6 +4,7 @@ import {
   JobsPositionInfo,
   FormData,
 } from "../components/validationSchema";
+import { submitFormPost, UserData } from "../utils/submitForm";
 
 
 interface JobAppState {
@@ -18,7 +19,7 @@ interface JobAppState {
   getTotalSteps: () => number;
   setPersonalInfo: (data: Partial<PersonalInfo>) => void;
   setJobsPositionInfo: (data: Partial<JobsPositionInfo>) => void;
-  submitForm: () => void;
+  submitForm: () => Promise<void>;
   setCon1: ()=> void;
   setCon2: ()=> void;
   setCon3: ()=> void;
@@ -80,14 +81,32 @@ const useFormSchema = create<JobAppState>((set, get) => ({
             },
           },
         })),
-  submitForm: () => {
+  submitForm: async () => {
+    const state = get();
+    if (!(state.con1 && state.con2 && state.con3)){
+      console.log('do it again')
+    }else{
+      const toSend: UserData = {
+        educationLevel: state.formData.jobsPositionInfo.educationLevel!,
+        industry: state.formData.jobsPositionInfo.industry!,
+        job: state.formData.jobsPositionInfo.job!,
+        member: state.formData.jobsPositionInfo.member!,
+        salary: "1000",
+        skill: state.formData.jobsPositionInfo.skill!,
+        workDescription: state.formData.jobsPositionInfo.workDescription,
+        yearOfWork: "year0",
+        dateOfBirth: state.formData.personalInfo.dateOfBirth,
+        email: state.formData.personalInfo.email,
+        firstName: state.formData.personalInfo.firstName,
+        lastName: state.formData.personalInfo.lastName,
+        phone: state.formData.personalInfo.phone,
+      }
+      await submitFormPost(toSend);
+    console.log("Form submitted Successfully!");
+    console.log("Submitted Data: ", state.formData);
+  }
+
     set((state) => {
-      if (!(state.con1 && state.con2 && state.con3)){
-        console.log('do it again')
-      }else{
-      console.log("Form submitted Successfully!");
-      console.log("Submitted Data: ", state.formData);
-    }
       return {
         step: 1,
         formData: {
