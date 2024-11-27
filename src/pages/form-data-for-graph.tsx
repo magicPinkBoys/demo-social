@@ -81,8 +81,6 @@ const useFormSchema = create<JobAppState>((set, get) => ({
           },
         })),
   submitForm: () => {
-
-    
     set((state) => {
       if (!(state.con1 && state.con2 && state.con3)){
         console.log('do it again')

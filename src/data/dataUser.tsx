@@ -1,10 +1,26 @@
- Adobe After Effect
-Adobe Lightroom
-Adobe Premier Pro
-Adobe Photoshop
-CaptureOne
-CapCut
-DaVinci Resolve
-Filmora
-Final Cut Pro
-other, please specify
+"CAD software",
+"Adobe Creative Suite",
+"3D lighting",
+"3D modeling",
+"Adobe Illustrator",
+"Adobe Photoshop",
+"Lightroom",
+"Capture One",
+"GIMP, Microsoft Visio SketchBook Pro",
+"Synfig",
+"Blackbaud The Raiser's Edge Oracle Eloqua ",
+"QAD Marketing Automation Salesforce software",
+"Apache Cassandra ",
+"Apache Hive",
+"Elasticsearch",
+"Oracle PL/SQL",
+"Airtable",
+"Amazon Redshift",
+"MySQL",
+"Yardi software",
+"Adobe After Effects",
+"Flipgrid",
+"TikTok, YouTube",
+"CSS",
+"Drupal",
+"Oracle JavaServer Pages JSP Ruby on Rails ",
