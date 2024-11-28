@@ -102,6 +102,7 @@ const useFormSchema = create<JobAppState>((set, get) => ({
         lastName: state.formData.personalInfo.lastName,
         phone: state.formData.personalInfo.phone,
       }
+
       await submitFormPost(toSend);
     console.log("Form submitted Successfully!");
     console.log("Submitted Data: ", state.formData);

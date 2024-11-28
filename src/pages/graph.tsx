@@ -52,7 +52,7 @@ export default function Graph() {
       //   multiselect: true
       // }
     };
-    if (!network) {
+    if (!network || ref.current) {
       if (ref.current){
         network = new Network(
           ref.current,
@@ -73,6 +73,7 @@ export default function Graph() {
           const childNodes = edges.get({
             filter: (edge) => edge.to === clickedNode.id
           });
+          console.log(childNodes);
           
           if (childNodes.length) {
             // มีลูก ให้ลบลูกทั้งหมด

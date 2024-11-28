@@ -17,7 +17,7 @@ export type UserData = {
 }
 
 export const submitFormPost = async (data: UserData) => {
-  const response = await axios.post('https://asia-southeast1-test-social-graph.cloudfunctions.net/webApi/api/user', {
+  const response = await axios.post(import.meta.env.VITE_API_URL + '/api/user', {
     data,
   });
 

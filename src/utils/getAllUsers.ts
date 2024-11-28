@@ -10,7 +10,7 @@ export type UserResponse = {
 }
 
 export const getAllUsers = async () => {
-  const data : UserResponse[] = (await axios.get('https://asia-southeast1-test-social-graph.cloudfunctions.net/webApi/api/all-users')).data;
+  const data : UserResponse[] = (await axios.get(import.meta.env.VITE_API_URL + '/api/all-users')).data;
   const users : Data[] = [];
   data.forEach((user) => {
     const index = parseInt(user.data.skill.match(/\d+/g)![0]);
