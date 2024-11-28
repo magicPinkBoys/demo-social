@@ -1,11 +1,10 @@
 import "../scss/navbar.css"
-import "../../public/picture/logo-social-graph.png"
 
 export default function Navbar() {
     return (<>
     <nav className="navlayer">
         <a href="/" className="">
-        <img className="logo-nav" src="../../public/picture/logo-social-graph.png" />
+        <img className="logo-nav" src="/picture/logo-social-graph.png" />
         </a>
         
         <ul>

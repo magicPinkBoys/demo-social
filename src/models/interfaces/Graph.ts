@@ -1,6 +1,6 @@
 import { Edge, Node } from "vis-network";
 
-export interface Graph {
+export interface GraphType {
     node: Node,
     edge: Edge,
 }

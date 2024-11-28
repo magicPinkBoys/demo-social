@@ -1,18 +1,33 @@
-import  { useEffect, useRef } from "react";
+import  { useEffect, useRef, useState } from "react";
 import { Network,  IdType } from "vis-network";
 import { DataSet } from "vis-data";
 
-import { data, graphs } from "../data/graph";
-import { getGraphsChildNodes, getGraphsChildNodesRecursively, getGraphsEdges, getGraphsEdgesOfNodeAndChildNodes, getGraphsNodeFromNodeId, getGraphsNodes, getGraphsWithDataType, isNodeInGraph } from "../utils/GraphUtils";
+import { data } from "../data/graph";
+import { getGraphs, getGraphsChildNodes, getGraphsChildNodesRecursively, getGraphsEdges, getGraphsEdgesOfNodeAndChildNodes, getGraphsNodeFromNodeId, getGraphsNodes, getGraphsWithDataType, isNodeInGraph } from "../utils/GraphUtils";
 import { DataType } from "../models/enums/DataType";
+import { getAllUsers } from "../utils/getAllUsers";
+import { Data } from "../models/Data";
+import { GraphType } from "../models/interfaces/Graph";
  
 let network: Network;
 
-export default () => {
+export default function Graph() {
   const ref = useRef<HTMLDivElement>(null);
+  const [user, setUser] = useState<Data[]>([]);
 
   useEffect(() => {
-    const initialGraphs = getGraphsWithDataType(data, DataType.ROOT);
+    async function fetchData() {
+      const data = await getAllUsers();
+      setUser(data);
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const totalData = data.concat(user);
+    console.log(totalData)
+    const initialGraphs = getGraphsWithDataType(totalData, DataType.ROOT);
+    const graphs: GraphType[] = getGraphs(totalData);
 
     const nodes = new DataSet(getGraphsNodes(initialGraphs));
     const edges = new DataSet(getGraphsEdges(initialGraphs));
@@ -73,7 +88,7 @@ export default () => {
         });
       }
     }
-  }, []);
+  }, [user]);
 
   return (
     <div className="container-app">

@@ -1,10 +1,10 @@
 import { Edge, IdType, Node } from "vis-network";
-import { Graph } from "../models/interfaces/Graph";
+import { GraphType } from "../models/interfaces/Graph";
 import { Data } from "../models/Data";
 import { DataType } from "../models/enums/DataType";
 
-export function getGraph(data: Data): Graph {
-    return <Graph>{
+export function getGraph(data: Data): GraphType {
+    return <GraphType>{
         node: <Node>{
             id: data.id,
             label: data.label
@@ -16,8 +16,8 @@ export function getGraph(data: Data): Graph {
     };
 }
 
-export function getGraphs(data: Data[]): Graph[] {
-    const graphs: Graph[] = [];
+export function getGraphs(data: Data[]): GraphType[] {
+    const graphs: GraphType[] = [];
 
     data.forEach(d => {
         const obtainedData = getGraph(d);
@@ -27,19 +27,19 @@ export function getGraphs(data: Data[]): Graph[] {
     return graphs;
 }
 
-export function getGraphsNodeFromNodeId(graphs: Graph[], nodeId: IdType): Node | null {
+export function getGraphsNodeFromNodeId(graphs: GraphType[], nodeId: IdType): Node | null {
     return graphs.find(
         graph => graph.node.id === nodeId
     )?.node ?? null;
 }
 
-export function isNodeInGraph(graphs: Graph[], node: Node): boolean {
+export function isNodeInGraph(graphs: GraphType[], node: Node): boolean {
     return graphs.filter(
         graph => graph.node.id === node.id
     ).length > 0;
 }
 
-export function getGraphsChildNodes(graphs: Graph[], node: Node): Node[] {
+export function getGraphsChildNodes(graphs: GraphType[], node: Node): Node[] {
     return graphs.filter(
         graph => node.id === graph.edge.to
     ).map(
@@ -47,7 +47,7 @@ export function getGraphsChildNodes(graphs: Graph[], node: Node): Node[] {
     );
 }
 
-export function getGraphsChildNodesRecursively(graphs: Graph[], node: Node): Node[] {
+export function getGraphsChildNodesRecursively(graphs: GraphType[], node: Node): Node[] {
     let nodes: Node[] = [];
 
     let recursedNodes: Node[] = [];
@@ -65,7 +65,7 @@ export function getGraphsChildNodesRecursively(graphs: Graph[], node: Node): Nod
     return nodes;
 }
 
-function recurseGetGraphsChildNodes(graphs: Graph[], nodes: Node[], recursedNodes: Node[]) {
+function recurseGetGraphsChildNodes(graphs: GraphType[], nodes: Node[], recursedNodes: Node[]) {
     let nodesResult: Node[] = [];
 
     nodes.forEach(node => {
@@ -80,7 +80,7 @@ function recurseGetGraphsChildNodes(graphs: Graph[], nodes: Node[], recursedNode
     );
 }
 
-export function getGraphsEdgesOfNodeAndChildNodes(graphs: Graph[], node: Node): Edge[] {
+export function getGraphsEdgesOfNodeAndChildNodes(graphs: GraphType[], node: Node): Edge[] {
     return graphs.filter(
         graph => node.id === graph.edge.to
     ).map(
@@ -88,7 +88,7 @@ export function getGraphsEdgesOfNodeAndChildNodes(graphs: Graph[], node: Node): 
     );
 }
 
-export function getGraphsWithDataType(data: Data[], dataType: DataType): Graph[] {
+export function getGraphsWithDataType(data: Data[], dataType: DataType): GraphType[] {
     return getGraphs(
         data.filter(
             d => d.type === dataType
@@ -96,13 +96,13 @@ export function getGraphsWithDataType(data: Data[], dataType: DataType): Graph[]
     );
 }
 
-export function getGraphsNodes(graphs: Graph[]): Node[] {
+export function getGraphsNodes(graphs: GraphType[]): Node[] {
     return graphs.map(
         graph => graph.node
     );
 }
 
-export function getGraphsEdges(graphs: Graph[]): Edge[] {
+export function getGraphsEdges(graphs: GraphType[]): Edge[] {
     return graphs.map(
         graph => graph.edge
     );

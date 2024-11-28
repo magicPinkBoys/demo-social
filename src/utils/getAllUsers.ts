@@ -17,6 +17,6 @@ export const getAllUsers = async () => {
 
     users.push(new Data(user.id, "", DataType.User, skills[index]));
   });
-  console.log(users);
+  // console.log(users);
   return users;
 };
