@@ -1,7 +1,7 @@
 import useFormSchema from "../pages/form-data-for-graph";
 import { jobsPositionInfoSchema } from "./validationSchema";
 import { useState } from "react";
-import { industries, Job } from "../data/SelectionData";
+import { Entry, industries, Job } from "../data/SelectionData";
 
 
 function JobsPositionInfo() {
@@ -13,12 +13,12 @@ function JobsPositionInfo() {
     setJobsPositionInfo({ [e.target.name]: e.target.value });
   };
 
-  const [industry, setIndustry] = useState('industry');
-  const [job, setJob] = useState('job');
-  const [skill, setSkill] = useState('software');
+  // const [industry, setIndustry] = useState('industry');
+  // const [job, setJob] = useState('job');
+
 
   const [jobs, setJobs] = useState<Array<Job>>([]);
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState<Array<Entry>>([]);
 
   const changeIndustry = ({
     fieldName,
@@ -26,7 +26,7 @@ function JobsPositionInfo() {
   }: { fieldName: string; industryName: string }
   ) => {
     setJobsPositionInfo({ [fieldName]: industryName })
-    setIndustry(industryName);
+    // setIndustry(industryName);
     const mayBeIndustry = industries.find((ctr) => ctr.name === industryName);
 
     if (!mayBeIndustry) return;
@@ -40,7 +40,7 @@ function JobsPositionInfo() {
   }: { fieldName: string; jobName: string }
   ) => {
     setJobsPositionInfo({ [fieldName]: jobName })
-    setJob(jobName);
+    // setJob(jobName);
     const mayBeJob = jobs.find((job) => job.id === jobName);
 
     if (!mayBeJob) return;
@@ -77,6 +77,7 @@ function JobsPositionInfo() {
               fieldName: e.target.name,
               industryName: e.target.value
             })} value={formData.jobsPositionInfo.industry ?? ""} >
+              <option value=""></option>
               {industries.map(ctr => (
                 <option value={ctr.name}>{ctr.name}</option>
               ))}
@@ -95,7 +96,7 @@ function JobsPositionInfo() {
             })} value={formData.jobsPositionInfo.job ?? ""} 
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" >
-
+                <option value=""></option>
               {jobs.map(job => (
                 <option value={job.id}>{job.name}</option>
               ))}
@@ -110,6 +111,7 @@ function JobsPositionInfo() {
             </label>
             <select disabled={!skills} name="skill" onChange={e => setJobsPositionInfo({ [e.target.name]: e.target.value })} value={formData.jobsPositionInfo.skill ?? ""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" >
+                <option value=""></option>
               {skills.map(skill => (
                 <option value={skill.id}>{skill.name}</option>
               ))}
@@ -130,7 +132,7 @@ function JobsPositionInfo() {
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5"
-              required
+              // required
             />
           </div>
           <div>
@@ -144,12 +146,10 @@ function JobsPositionInfo() {
               rounded-lg block w-full p-2.5" >
               <option value=""></option>
               <option value="ต่ำกว่า 6 เดือน">ต่ำกว่า 6 เดือน</option>
-              <option value="6 เดือน - 1 ปี">6 เดือน - 1 ปี</option>
+              <option value="น้อยกว่า 1 ปี">น้อยกว่า 1 ปี</option>
               <option value="1 - 2 ปี">1 - 2 ปี</option>
-              <option value="2 - 5 ปี">2 - 5 ปี</option>
-              <option value="5 - 7 ปี">5 - 7 ปี</option>
-              <option value="7 - 10 ปี">7 - 10 ปี</option>
-              <option value="มากกว่า 10 ปี">มากกว่า 10 ปี</option>
+              <option value="3 - 5 ปี">3 - 5 ปี</option>
+              <option value="มากกว่า 5 ปี">มากกว่า 5 ปี</option>
             </select>
           </div>
           <div>
@@ -163,10 +163,10 @@ function JobsPositionInfo() {
               rounded-lg block w-full p-2.5" >
               <option value=""></option>
               <option value="ต่ำกว่า 15,000 บาท">ต่ำกว่า 15,000 บาท</option>
-              <option value="15,000  - 30,000 บาท">15,000  - 30,000 บาท</option>
-              <option value="30,000 - 50,000  บาท">30,000 - 50,000  บาท</option>
-              <option value="50,000 - 75,000  บาท">50,000 - 75,000  บาท</option>
-              <option value="75,000 - 100,000 บาท">75,000 - 100,000 บาท</option>
+              <option value="15,000  - 29,999 บาท">15,000  - 29,999 บาท</option>
+              <option value="30,000 - 49,999  บาท">30,000 - 49,999  บาท</option>
+              <option value="50,000 - 74,999  บาท">50,000 - 74,999  บาท</option>
+              <option value="75,000 - 99,999 บาท">75,000 - 99,999 บาท</option>
               <option value="มากกว่า 100,000  บาท">มากกว่า 100,000  บาท</option>
 
             </select>
@@ -191,11 +191,14 @@ function JobsPositionInfo() {
             <select name="educationLevel" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5" onChange={e => setJobsPositionInfo({ [e.target.name]: e.target.value })} value={formData.jobsPositionInfo.educationLevel ?? ""} >
               <option value=""></option>
+              <option value="ประถมศึกษา (Primary School)">ประถมศึกษา (Primary School)</option>
+              <option value="มัธยมศึกษา (Secondary School)">มัธยมศึกษา (Secondary School)</option>
               <option value="ประกาศนียบัตรวิชาชีพ (Vocational Certificate)">ประกาศนียบัตรวิชาชีพ (Vocational Certificate)</option>
               <option value="ประกาศนียบัตรวิชาชีพขั้นสูง (Diploma/High Vocational Certificate)">ประกาศนียบัตรวิชาชีพขั้นสูง (Diploma/High Vocational Certificate)</option>
               <option value="ปริญญาตรี (Bachelor Degrees)">ปริญญาตรี (Bachelor Degrees)</option>
               <option value="ปริญญาโท  (Master Degrees)">ปริญญาโท  (Master Degrees)</option>
               <option value="ปริญญาเอก (Doctoral Degrees)">ปริญญาเอก (Doctoral Degrees)</option>
+              <option value="อื่นๆ (Others)">อื่นๆ (Others)</option>
             </select>
           </div>
           <div>
@@ -213,7 +216,7 @@ function JobsPositionInfo() {
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm
               rounded-lg block w-full p-2.5"
-              required
+              // required
             />
           </div>
 

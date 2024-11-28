@@ -1,6 +1,7 @@
 import { Data } from "../models/Data";
 import { DataType } from "../models/enums/DataType";
 
+
 export const root: Data = new Data("root", "Industry Group", DataType.ROOT);
 
 export const industries: Data[] = [
@@ -1302,6 +1303,4 @@ new Data("i8j97skill337", "Oracle JavaServer Pages JSP Ruby on Rails ", DataType
 ];
 
 
-export const users: Data[] = [
-    new Data("i8j97skill336", "", DataType.User, skills[0]),
-];
+// export const users: Data[] = [await getAllUsers;]

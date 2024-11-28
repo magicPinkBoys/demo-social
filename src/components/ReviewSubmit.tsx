@@ -1,17 +1,11 @@
-import { useState } from "react";
 import useFormSchema from "../pages/form-data-for-graph";
-
-import { industries } from "../data/graphData";
 
 function ReviewSubmit() {
   const { submitForm, prevStep, formData, setCon1, setCon2 , setCon3, con1 , con2, con3 } = useFormSchema();
 
   return (
     <div>
-      {/* <h2 className="text-xl font-semibold">Review your Information</h2> */}
-
       <div>
-        {/* <h3 className="text-lg font-semibold">Personal Info</h3> */}
         <div className="text-white grid gap-6 mb-6 mt-2 md:grid-cols-2 p-2 ">
           <p>
             <span className="font-semibold">ชื่อ(Name)*: </span>
@@ -50,6 +44,7 @@ function ReviewSubmit() {
             <span className="font-semibold">อาชีพ(Job)*: </span>
             
             {formData.jobsPositionInfo.job}
+            
           </p>
           <p>
             <span className="font-semibold">ทักษะและความเชี่ยวชาญ

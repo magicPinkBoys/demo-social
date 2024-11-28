@@ -1,16 +1,16 @@
 import "../scss/navbar.css"
-import { Link } from "react-router-dom";
 import "../../public/picture/logo-social-graph.png"
 
 export default function Navbar() {
     return (<>
     <nav className="navlayer">
-        {/* <a href="/" className="logo-nav">Logo</a> */}
+        <a href="/" className="">
         <img className="logo-nav" src="../../public/picture/logo-social-graph.png" />
+        </a>
+        
         <ul>
             <li>
-            <a href="/">Database</a>
-            {/* <Link to="/graph">Database</Link> */}
+            <a href="/graph">Database</a>
             </li>
             <li>
                 <a href="/">About</a>

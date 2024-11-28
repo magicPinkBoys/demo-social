@@ -10,7 +10,6 @@ import { submitFormPost, UserData } from "../utils/submitForm";
 interface JobAppState {
   step: number;
   formData: FormData;
-  // textForStep: ["Personal information", "Work information", "Confirmation"],
   con1: boolean;
   con2: boolean;
   con3: boolean;
@@ -23,6 +22,7 @@ interface JobAppState {
   setCon1: ()=> void;
   setCon2: ()=> void;
   setCon3: ()=> void;
+
 }
 
 const useFormSchema = create<JobAppState>((set, get) => ({
@@ -53,6 +53,7 @@ const useFormSchema = create<JobAppState>((set, get) => ({
   con2: false,
   con3: false,
 
+  
 
   setCon1: () => set((state) => ({con1: !state.con1})),
   setCon2: () => set((state) => ({con2: !state.con2})),
@@ -106,9 +107,9 @@ const useFormSchema = create<JobAppState>((set, get) => ({
     console.log("Submitted Data: ", state.formData);
   }
 
-    set((state) => {
+    set(() => {
       return {
-        step: 1,
+        step: 1, 
         formData: {
           personalInfo: {
             firstName: "",

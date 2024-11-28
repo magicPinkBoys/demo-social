@@ -1,7 +1,5 @@
 import { z } from "zod"
 
-
-
 export const personalInfoSchema = z.object({
   firstName: z.string().min(3, "Name is Required"),
   lastName: z.string().min(1, "Last Name is Required"),
@@ -135,30 +133,33 @@ export const jobsPositionInfoSchema = z.object({
   workDescription: z.string().min(3, "Work Description is requried"),
   yearOfWork: z.enum([
     "ต่ำกว่า 6 เดือน",
-    "6 เดือน - 1 ปี",
-    "1 - 2 ปี",
-    "2 - 5 ปี",
-    "5 - 7 ปี",
-    "7 - 10 ปี",
-    "มากกว่า 10 ปี",
+"น้อยกว่า 1 ปี",
+"1 - 2 ปี",
+"3 - 5 ปี",
+"มากกว่า 5 ปี",
   ], {
     message: "year is required",
   }).nullish(),
   salary: z.enum([
     "ต่ำกว่า 15,000 บาท",
-    "15,000  - 30,000 บาท",
-    "30,000 - 50,000  บาท",
-    "50,000 - 75,000  บาท",
-    "75,000 - 100,000 บาท",
-    "มากกว่า 100,000  บาท",
+"15,000  - 29,999 บาท",
+"30,000 - 49,999  บาท",
+"50,000 - 74,999  บาท",
+"75,000 - 99,999 บาท",
+"มากกว่า 100,000  บาท",
+
   ], {
     message: "salary is required",
   }).nullish(),
-  educationLevel: z.enum(["ประกาศนียบัตรวิชาชีพ (Vocational Certificate)",
+  educationLevel: z.enum([
+    "ประถมศึกษา (Primary School)",
+    "มัธยมศึกษา (Secondary School)",  
+    "ประกาศนียบัตรวิชาชีพ (Vocational Certificate)",
               "ประกาศนียบัตรวิชาชีพขั้นสูง (Diploma/High Vocational Certificate)",
               "ปริญญาตรี (Bachelor Degrees)",
               "ปริญญาโท  (Master Degrees)",
-              "ปริญญาเอก (Doctoral Degrees)",], {
+              "ปริญญาเอก (Doctoral Degrees)",
+            "อื่นๆ (Others)",], {
     message: "education is required",
   }).nullish(),
   member: z.string().min(3, "member is requried"),
