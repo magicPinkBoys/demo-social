@@ -79,15 +79,15 @@ function ReviewSubmit() {
 
       <div className="check-home flex flex-col items-center text-white">
         <div>
-        <input type="checkbox" id="con1" name="con1" checked={con1} onChange={e => setCon1()} />
+        <input type="checkbox" id="con1" name="con1" checked={con1} onChange={() => setCon1()} />
         <label className="tx-color" > ยินดีให้เราติดต่อกับเพื่อร่วมกันพัฒนาฐานข้อมูลให้ดียิ่งขึ้น</label><br></br>
         </div>
         <div>
-        <input type="checkbox" id="con2" name="con2"  checked={con2} onChange={e => setCon2()}/>
+        <input type="checkbox" id="con2" name="con2"  checked={con2} onChange={() => setCon2()}/>
         <label className="tx-color" > การให้ความยินยอมข้อมูลส่วนบุคคล(Term&Conditions)</label><br></br>
         </div>
         <div>
-        <input type="checkbox" id="con3" name="con3"  checked={con3} onChange={e => setCon3()}/>
+        <input type="checkbox" id="con3" name="con3"  checked={con3} onChange={() => setCon3()}/>
         <label className="tx-color" > ฉันยอมรับ เงื่อนไขการใช้เว็บไซต์ และ นโยบายความเป็นส่วนตัว</label>
         </div>
             
