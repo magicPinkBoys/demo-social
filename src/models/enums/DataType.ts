@@ -3,4 +3,5 @@ export enum DataType {
     INDUSTRY,
     JOB,
     SKILL,
+    User,
 }
